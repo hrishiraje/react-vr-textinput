@@ -63,10 +63,51 @@ handleDelete() {
 }
 
 handleForward() {
+  this.setState({
 
+    textArrayCursorYes: function(){
+      var newArray = this.state.textArrayCursorYes.slice();
+      var temp = newArray[this.state.cursorPosition];
+      newArray[this.state.cursorPosition] = newArray[this.state.cursorPosition + 1];
+      newArray[this.state.cursorPosition + 1] = temp;
+      return newArray;
+    }(),
+
+    textArrayCursorNo: function() {
+      var newArray = this.state.textArrayCursorYes.slice();
+      var temp = newArray[this.state.cursorPosition];
+      newArray[this.state.cursorPosition] = newArray[this.state.cursorPosition + 1];
+      newArray[this.state.cursorPosition + 1] = temp;
+      return newArray;
+    }(),
+
+    text: this.generateText()
+
+  });
 }
 
 handleBack() {
+  this.setState({
+
+    textArrayCursorYes: function(){
+      var newArray = this.state.textArrayCursorYes.slice();
+      var temp = newArray[this.state.cursorPosition];
+      newArray[this.state.cursorPosition] = newArray[this.state.cursorPosition - 1];
+      newArray[this.state.cursorPosition - 1] = temp;
+      return newArray;
+    }(),
+
+    textArrayCursorNo: function() {
+      var newArray = this.state.textArrayCursorYes.slice();
+      var temp = newArray[this.state.cursorPosition];
+      newArray[this.state.cursorPosition] = newArray[this.state.cursorPosition - 1];
+      newArray[this.state.cursorPosition - 1] = temp;
+      return newArray;
+    }(),
+
+    text: this.generateText()
+
+  });
 
 }
 
